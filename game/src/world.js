@@ -57,7 +57,7 @@ export function buildCity(scene) {
   // --- Ground ------------------------------------------------------------
   const ground = new THREE.Mesh(
     new THREE.PlaneGeometry(H * 2 + 80, H * 2 + 80),
-    new THREE.MeshLambertMaterial({ color: 0x2a2f3a }),
+    new THREE.MeshLambertMaterial({ color: 0x40465a }),
   );
   ground.rotation.x = -Math.PI / 2;
   ground.receiveShadow = true;
@@ -73,8 +73,8 @@ export function buildCity(scene) {
   group.add(water);
 
   // --- Roads -------------------------------------------------------------
-  const roadMat = new THREE.MeshLambertMaterial({ color: 0x181a20 });
-  const avenueMat = new THREE.MeshLambertMaterial({ color: 0x1e2028 });
+  const roadMat = new THREE.MeshLambertMaterial({ color: 0x2b2e38 });
+  const avenueMat = new THREE.MeshLambertMaterial({ color: 0x32353f });
   const lineMat = new THREE.MeshBasicMaterial({ color: 0xd8c25a });
   for (let i = -5; i <= 5; i++) {
     const c = i * CITY.BLOCK;
@@ -226,14 +226,14 @@ export function buildCity(scene) {
   group.add(plaza);
 
   // --- Lighting ----------------------------------------------------------
-  const sun = new THREE.DirectionalLight(0xffb36b, 1.15);
+  const sun = new THREE.DirectionalLight(0xffb36b, 1.8);
   sun.position.set(120, 180, 60);
   sun.castShadow = true;
   sun.shadow.mapSize.set(2048, 2048);
   sun.shadow.camera.left = -240; sun.shadow.camera.right = 240;
   sun.shadow.camera.top = 240; sun.shadow.camera.bottom = -240;
   group.add(sun);
-  group.add(new THREE.AmbientLight(0x8a7ab8, 0.85));
+  group.add(new THREE.AmbientLight(0x9a8ac8, 1.35));
   const dusk = new THREE.PointLight(0xff2e88, 900, 160);
   dusk.position.set(88, 18, -88);
   group.add(dusk);

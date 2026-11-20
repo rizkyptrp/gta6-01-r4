@@ -398,6 +398,14 @@ class Game {
       this.player.car = car;
       this.player.mesh.visible = false;
       this.setWanted(3);
+      // Pull one cruiser into frame behind the player for the cover.
+      const cruiser = this.police[0];
+      if (cruiser) {
+        cruiser.x = this.player.x - Math.sin(this.player.heading) * 16;
+        cruiser.z = this.player.z - Math.cos(this.player.heading) * 16;
+        cruiser.heading = this.player.heading;
+        cruiser.mesh.position.set(cruiser.x, 0, cruiser.z);
+      }
       this.hud.setObjective('MISSION 3 — HEAT WAVE', 'Shake the police — stay out of sight until the heat drops.');
       this.hud.toast('★★★ WANTED — OUTRUN THE LAW');
     } else if (SHOT === 'drive') {
