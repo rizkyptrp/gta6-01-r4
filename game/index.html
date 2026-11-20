@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NEON DUSK — Sable City</title>
+<link rel="stylesheet" href="style.css">
+<script type="importmap">
+{ "imports": { "three": "./vendor/three/three.module.min.js" } }
+</script>
+</head>
+<body>
+<div id="app">
+  <canvas id="scene"></canvas>
+
+  <!-- HUD -->
+  <div id="hud" class="hidden">
+    <div id="wanted"></div>
+    <div id="cash">$0</div>
+    <div id="health"><div id="healthfill"></div><span>HEALTH</span></div>
+    <div id="clock">18:42</div>
+    <div id="objective"><div id="obj-title">FREE ROAM</div><div id="obj-text">Find a car. Press E near one to steal it.</div></div>
+    <div id="mission-toast"></div>
+    <div id="speedo"><span id="speed">0</span><small>km/h</small></div>
+    <div id="minimap-wrap"><canvas id="minimap" width="220" height="220"></canvas><div id="mm-label">SABLE CITY</div></div>
+    <div id="hint">WASD move &middot; E enter car &middot; SPACE handbrake &middot; CLICK shoot &middot; P pause</div>
+    <div id="crosshair">+</div>
+    <div id="busted" class="hidden"><div class="big">BUSTED</div><div class="sub">The Sable City Police took you in.</div><div class="keys">Press R to restart</div></div>
+    <div id="wasted" class="hidden"><div class="big">WASTED</div><div class="sub">Kai Mercer didn't make it.</div><div class="keys">Press R to restart</div></div>
+    <div id="mission-pass" class="hidden"><div class="big gold">MISSION PASSED</div><div class="sub" id="pass-text"></div></div>
+  </div>
+
+  <!-- Start screen -->
+  <div id="menu">
+    <div class="menu-inner">
+      <div class="logo"><span class="neon">NEON</span> <span class="dusk">DUSK</span></div>
+      <div class="tagline">SABLE CITY &middot; AN OPEN-WORLD CRIME STORY</div>
+      <div class="story">Kai Mercer came home to Sable City with nothing but a busted
+        knuckle and a name to clear. The Vulture Crew burned him once.
+        Tonight he takes it all back — one car, one job, one score at a time.</div>
+      <button id="play-btn">▶ &nbsp;START ENGINE</button>
+      <button id="continue-btn" class="hidden">CONTINUE — MISSION <span id="cont-num">1</span></button>
+      <div class="controls">
+        <div><b>WASD</b> move / drive</div>
+        <div><b>E</b> enter &amp; steal cars</div>
+        <div><b>CLICK</b> shoot &nbsp; <b>F</b> punch</div>
+        <div><b>SPACE</b> handbrake / sprint</div>
+        <div><b>P</b> pause &nbsp; <b>M</b> missions &nbsp; <b>H</b> honk</div>
+      </div>
+      <div class="foot">An original game. No network, no downloads — everything runs on your machine.</div>
+    </div>
+  </div>
+
+  <!-- Pause / mission list -->
+  <div id="pause" class="hidden">
+    <div class="pause-inner">
+      <div class="pause-title">PAUSED</div>
+      <div class="pause-sub">SABLE CITY — MISSIONS</div>
+      <ol id="mission-list"></ol>
+      <button id="resume-btn">RESUME</button>
+      <button id="quit-btn">QUIT TO MENU</button>
+    </div>
+  </div>
+</div>
+<script type="module" src="src/main.js"></script>
+</body>
+</html>
